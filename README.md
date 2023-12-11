@@ -171,6 +171,7 @@ To publish a given u-blox message to a ROS topic, set the parameter shown below 
 * `publish/nav/att`: Topic `~navatt`. **ADR/UDR devices only**
 * `publish/nav/clock`: Topic `~navclock`
 * `publish/nav/posecef`: Topic `~navposecef`
+* `publish/nav/hpposecef`: Topic `~navhpposecef`
 * `publish/nav/posllh`: Topic `~navposllh`. **Firmware <= 6 only.** For firmware 7 and above, see NavPVT
 * `publish/nav/pvt`: Topic `~navpvt`. **Firmware >= 7 only.**
 * `publish/nav/relposned`: Topic `~navrelposned`. **HPG Rover devices only**

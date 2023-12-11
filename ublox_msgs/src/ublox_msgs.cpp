@@ -46,6 +46,8 @@ DECLARE_UBLOX_MESSAGE(ublox_msgs::Class::NAV, ublox_msgs::Message::NAV::DOP,
                       ublox_msgs, NavDOP)
 DECLARE_UBLOX_MESSAGE(ublox_msgs::Class::NAV, ublox_msgs::Message::NAV::POSECEF,
                       ublox_msgs, NavPOSECEF)
+DECLARE_UBLOX_MESSAGE(ublox_msgs::Class::NAV, ublox_msgs::Message::NAV::HPPOSECEF,
+                      ublox_msgs, NavHPPOSECEF)
 DECLARE_UBLOX_MESSAGE(ublox_msgs::Class::NAV, ublox_msgs::Message::NAV::POSLLH,
                       ublox_msgs, NavPOSLLH)
 DECLARE_UBLOX_MESSAGE(ublox_msgs::Class::NAV,
