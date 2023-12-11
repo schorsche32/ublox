@@ -481,8 +481,8 @@ void UbloxNode::getRosParams() {
   if (getRosBoolean(this, "publish.nav.posecef")) {
     nav_posecef_pub_ = this->create_publisher<ublox_msgs::msg::NavPOSECEF>("navposecef", 1);
   }
-  if (getRosBoolean(this, "publish.nav.posecef")) {
-    nav_posecef_pub_ = this->create_publisher<ublox_msgs::msg::NavPOSECEF>("navposecef", 1);
+  if (getRosBoolean(this, "publish.nav.hpposecef")) {
+    nav_hpposecef_pub_ = this->create_publisher<ublox_msgs::msg::NavHPPOSECEF>("navhpposecef", 1);
   }
   if (getRosBoolean(this, "publish.nav.cov")) {
     nav_cov_pub_ = this->create_publisher<ublox_msgs::msg::NavCOV>("navcov", 1);
