@@ -40,6 +40,7 @@ add_library(ublox_gps
   src/node.cpp
   src/raw_data_pa.cpp
   src/raw_data_product.cpp
+  src/rawx_data_product.cpp
   src/tim_product.cpp
   src/ublox_firmware.cpp
   src/ublox_firmware6.cpp

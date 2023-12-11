@@ -67,6 +67,7 @@
 #include <ublox_gps/hpg_rov_product.hpp>
 #include <ublox_gps/node.hpp>
 #include <ublox_gps/raw_data_product.hpp>
+#include <ublox_gps/rawx_data_product.hpp>
 #include <ublox_gps/tim_product.hpp>
 #include <ublox_gps/ublox_firmware6.hpp>
 #include <ublox_gps/ublox_firmware7.hpp>
@@ -895,9 +896,11 @@ void UbloxNode::initialize() {
   initializeIo();
   // Must process Mon VER before setting firmware/hardware params
   processMonVer();
-  if (protocol_version_ <= 14.0) {
-    if (getRosBoolean(this, "raw_data")) {
-      components_.push_back(std::make_shared<RawDataProduct>(nav_rate_, meas_rate_, updater_, this));
+  if (getRosBoolean(this, "raw_data")) {
+    if (protocol_version_ <= 14.0) {
+        components_.push_back(std::make_shared<RawDataProduct>(nav_rate_, meas_rate_, updater_, this));
+    } else {
+        components_.push_back(std::make_shared<RawXDataProduct>(nav_rate_, meas_rate_, updater_, this));
     }
   }
   // Must set firmware & hardware params before initializing diagnostics
