@@ -30,7 +30,7 @@ void RawXDataProduct::subscribe(std::shared_ptr<ublox_gps::Gps> gps) {
                                        1);
   }
   // Subscribe to RXM SFRBX
-  if (getRosBoolean(node_, "publish.rxm.sfrbx")) {
+  if (getRosBoolean(node_, "publish.rxm.sfrb")) {
     gps->subscribe<ublox_msgs::msg::RxmSFRBX>([this](const ublox_msgs::msg::RxmSFRBX &m) { rxm_sfrbx_pub_->publish(m); },
                                         1);
   }
