@@ -37,20 +37,26 @@ import os
 import ament_index_python.packages
 import launch
 import launch_ros.actions
+from launch.actions import DeclareLaunchArgument
+from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
 
 
 def generate_launch_description():
     config_directory = os.path.join(
         ament_index_python.packages.get_package_share_directory('ublox_gps'),
         'config')
-    params = os.path.join(config_directory, 'c94_m8p_rover.yaml')
+
+    config_file_arg = DeclareLaunchArgument(
+        'file_name', default_value='c94_m8p_rover.yaml',
+        description='Name of the config file.')
+    params = PathJoinSubstitution([config_directory, LaunchConfiguration('file_name')])
     ublox_gps_node = launch_ros.actions.Node(package='ublox_gps',
                                              executable='ublox_gps_node',
                                              output='both',
                                              parameters=[params])
 
-    return launch.LaunchDescription([ublox_gps_node,
-
+    return launch.LaunchDescription([config_file_arg,
+                                     ublox_gps_node,                                     
                                      launch.actions.RegisterEventHandler(
                                          event_handler=launch.event_handlers.OnProcessExit(
                                              target_action=ublox_gps_node,
